@@ -22,7 +22,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "article-workspace",
+            "prefix": "",
             "style": "kebab-case"
           }
         ]
