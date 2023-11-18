@@ -5,7 +5,21 @@
     <h1 class="tui-text_h3 title">Example forms</h1>
 
     <div class="links">
-      <a
+      <tui-tabs [(activeItemIndex)]="activeItemIndex">
+        <button
+          tuiTab
+          routerLink="example-01"
+        >
+          Eaxmple 1
+        </button>
+        <button
+          tuiTab
+          routerLink="example-02"
+        >
+          Eaxmple 2
+        </button>
+      </tui-tabs>
+      <!-- <a
         tuiLink
         routerLink="example-01"
       >
@@ -16,6 +30,6 @@
         routerLink="example-02"
       >
         Example 2
-      </a>
+      </a> -->
     </div>
 </div>

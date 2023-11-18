@@ -1,0 +1,61 @@
+<ng-container [formGroup]="addressForm">
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.country"
+      >
+        Страна
+
+        <input
+          placeholder="Россия"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.region"
+      >
+        Область
+  
+        <input
+          placeholder="Московская"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+    </div>
+  </div>
+
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.city"
+      >
+        Город
+
+        <input
+          placeholder="Москва"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.zipCode"
+      >
+        Почтовый индекс
+  
+        <input
+          placeholder="000000"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+    </div>
+  </div>
+</ng-container>

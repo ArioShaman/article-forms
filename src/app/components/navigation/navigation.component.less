@@ -1,12 +1,14 @@
+@import '@taiga-ui/core/styles/taiga-ui-local.less';
+
 :host {
   display: block;
 }
 
 .wrapper {
+  .inset-border(bottom, light);
   display: flex;
   align-items: center;
   padding: 1rem;
-  border-bottom: 2px solid grey;
 }
 
 .content {
@@ -19,6 +21,7 @@
 }
 
 .links {
+  margin-left: 1.5rem;
   width: ~'calc(100% - 17rem)';
   justify-content: flex-end;
   box-shadow: none;
