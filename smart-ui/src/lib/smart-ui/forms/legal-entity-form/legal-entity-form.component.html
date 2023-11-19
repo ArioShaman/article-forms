@@ -1,0 +1,102 @@
+<ng-container [formGroup]="legalEntityForm">
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.name"
+      >
+        Наименование организации
+
+        <input
+          [placeholder]="namePlaceholder"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.name"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.inn"
+        [maskito]="masks[controls.inn]"
+      >
+        ИНН
+
+        <input
+          placeholder="0000000000"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.inn"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+  </div>
+
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.ogrn"
+        [maskito]="masks[controls.ogrn]"
+      >
+        ОГРН
+        <input
+          placeholder="0000000000000"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.ogrn"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.kpp"
+        [maskito]="masks[controls.kpp]"
+      >
+        КПП
+        <input
+          placeholder="000000000"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.kpp"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+  </div>
+
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.legalAddress"
+      >
+        Юридический адрес
+        <input
+          placeholder="3-я улица строителей, дом 25"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.legalAddress"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+  </div>
+</ng-container>

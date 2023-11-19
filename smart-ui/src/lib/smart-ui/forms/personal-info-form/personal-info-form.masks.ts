@@ -1,5 +1,4 @@
-import { PersonalInfoFormControls } from './personal-info-form.controls';
-import { IMasks } from '@article-workspace/types';
+import { IMasks, PersonalInfoFormControls } from '@article-workspace/types';
 
 export const personalInfoMasks: IMasks = {
   [PersonalInfoFormControls.inn]: {

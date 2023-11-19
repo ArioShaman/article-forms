@@ -12,7 +12,6 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ISubFormComponent } from '../sub-form-component.interface';
 import { MaskitoModule } from '@maskito/angular';
 import { TuiErrorModule } from '@taiga-ui/core';
 import {
@@ -21,13 +20,15 @@ import {
   TUI_VALIDATION_ERRORS,
   TuiInputPhoneModule
 } from '@taiga-ui/kit';
-import {
-  IPersonalInfoForm,
-  PersonalInfoFormControls,
-  PersonalInfoFormValidationKeys,
-} from './personal-info-form.controls';
 import { InternalValidators } from '@article-workspace/utils';
 import { personalInfoMasks } from './personal-info-form.masks';
+import {
+  Example01FormControls,
+  IPersonalInfoForm,
+  ISubFormComponent,
+  PersonalInfoFormControls,
+  PersonalInfoFormValidationKeys,
+} from '@article-workspace/types';
 
 @Component({
   selector: 'personal-info-form',
@@ -81,7 +82,7 @@ export class PersonalInfoFormComponent implements OnInit, OnDestroy, ISubFormCom
   }
 
   ngOnDestroy(): void {
-    this.parentForm.removeControl('address');
+    this.parentForm.removeControl(Example01FormControls.personalInfo);
   }
 
   addSubformFields(): void {
@@ -137,7 +138,7 @@ export class PersonalInfoFormComponent implements OnInit, OnDestroy, ISubFormCom
     });
 
     this.parentForm.addControl(
-      'personalInfo',
+      Example01FormControls.personalInfo,
       this.personalInfoForm
     );
   }

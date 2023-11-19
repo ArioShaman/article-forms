@@ -13,11 +13,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import {
-  AddressFormControls,
-  AddressFormValidationKeys,
-  IAddressForm,
-} from './address-form.controls';
-import {
   TUI_VALIDATION_ERRORS,
   TuiFieldErrorPipeModule,
   TuiInputModule,
@@ -27,7 +22,13 @@ import { TuiErrorModule } from '@taiga-ui/core';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoModule } from '@maskito/angular';
 import { InternalValidators } from '@article-workspace/utils';
-import { ISubFormComponent } from '../sub-form-component.interface';
+import {
+  AddressFormControls,
+  AddressFormValidationKeys,
+  Example01FormControls,
+  IAddressForm,
+  ISubFormComponent,
+} from '@article-workspace/types';
 
 @Component({
   selector: 'address-form',
@@ -83,7 +84,7 @@ export class AddressFormComponent implements OnInit, OnDestroy, ISubFormComponen
   }
 
   ngOnDestroy(): void {
-    this.parentForm.removeControl('address');
+    this.parentForm.removeControl(Example01FormControls.address);
   }
 
   addSubformFields(): void {
@@ -131,8 +132,8 @@ export class AddressFormComponent implements OnInit, OnDestroy, ISubFormComponen
     });
 
     this.parentForm.addControl(
-      'address',
-      this.addressForm
+      Example01FormControls.address,
+      this.addressForm,
     );
   }
 }
