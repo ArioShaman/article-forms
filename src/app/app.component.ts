@@ -2,7 +2,7 @@ import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
 import { TuiRootModule, TuiDialogModule, TuiAlertModule, TUI_SANITIZER } from "@taiga-ui/core";
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavigationComponent } from "./components";
+import { NavigationComponent } from '@article-workspace/smart-ui';
 
 @Component({
   standalone: true,

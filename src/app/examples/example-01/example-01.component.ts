@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddressFormComponent } from '@article-workspace/smart-ui';
+import { tuiMarkControlAsTouchedAndValidate } from '@taiga-ui/cdk';
 import { TuiButtonModule } from '@taiga-ui/core';
-import { AddressFormComponent } from 'src/app/forms';
+
 
 @Component({
   selector: 'example-01',
@@ -30,6 +32,8 @@ export class Example01Component implements OnInit {
   }
 
   onSubmit(): void {
+    tuiMarkControlAsTouchedAndValidate(this.exampleForm);
+
     const formValue = this.exampleForm.value;
 
     console.log('cock', formValue);

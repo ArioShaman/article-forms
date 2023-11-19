@@ -12,6 +12,11 @@
         />
         <span class="tui-required"></span>
       </tui-input>
+
+      <tui-error
+        [formControlName]="controls.country"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
     </div>
 
     <div class="tui-form__multi-field">
@@ -26,6 +31,11 @@
         />
         <span class="tui-required"></span>
       </tui-input>
+
+      <tui-error
+        [formControlName]="controls.region"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
     </div>
   </div>
 
@@ -42,6 +52,11 @@
         />
         <span class="tui-required"></span>
       </tui-input>
+
+      <tui-error
+        [formControlName]="controls.city"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
     </div>
 
     <div class="tui-form__multi-field">
@@ -57,6 +72,31 @@
         />
         <span class="tui-required"></span>
       </tui-input>
+
+      <tui-error
+        [formControlName]="controls.zipCode"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+  </div>
+
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.address"
+      >
+        Адрес
+        <input
+          placeholder="3-я улица строителей, дом 25"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+  
+      <tui-error
+        [formControlName]="controls.address"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
     </div>
   </div>
 </ng-container>
