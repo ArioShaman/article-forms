@@ -20,7 +20,7 @@ import {
   TUI_VALIDATION_ERRORS,
   TuiInputPhoneModule
 } from '@taiga-ui/kit';
-import { InternalValidators } from '@article-workspace/utils';
+import { InternalValidators, ValidationRegex } from '@article-workspace/utils';
 import { personalInfoMasks } from './personal-info-form.masks';
 import {
   Example01FormControls,
@@ -54,12 +54,18 @@ import {
           'Укажите фамилию',
         [PersonalInfoFormValidationKeys.innRequired]:
           'Укажите ИНН',
+        [PersonalInfoFormValidationKeys.innPattern]:
+          'Некорректный формат ИНН',
         [PersonalInfoFormValidationKeys.snilsRequired]:
           'Укажите СНИЛС',
+        [PersonalInfoFormValidationKeys.snilsPattern]:
+          'Некорректный формат СНИЛС',
         [PersonalInfoFormValidationKeys.phoneRequired]:
           'Укажите телефон',
         [PersonalInfoFormValidationKeys.passportRequired]:
           'Укажите серию и номер паспорта',
+        [PersonalInfoFormValidationKeys.passportPattern]:
+          'Некорректный формат номера паспорта',
       },
     },
   ],
@@ -108,7 +114,11 @@ export class PersonalInfoFormComponent implements OnInit, OnDestroy, ISubFormCom
         [
           InternalValidators.required(
             PersonalInfoFormValidationKeys.innRequired
-          )
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.inn,
+            PersonalInfoFormValidationKeys.innPattern
+          ),
         ],
       ),
       [PersonalInfoFormControls.snils]: new FormControl<string | null>(
@@ -116,7 +126,11 @@ export class PersonalInfoFormComponent implements OnInit, OnDestroy, ISubFormCom
         [
           InternalValidators.required(
             PersonalInfoFormValidationKeys.snilsRequired
-          )
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.snils,
+            PersonalInfoFormValidationKeys.snilsPattern
+          ),
         ],
       ),
       [PersonalInfoFormControls.phone]: new FormControl<string | null>(
@@ -124,7 +138,7 @@ export class PersonalInfoFormComponent implements OnInit, OnDestroy, ISubFormCom
         [
           InternalValidators.required(
             PersonalInfoFormValidationKeys.phoneRequired
-          )
+          ),
         ],
       ),
       [PersonalInfoFormControls.passport]: new FormControl<string | null>(
@@ -132,7 +146,11 @@ export class PersonalInfoFormComponent implements OnInit, OnDestroy, ISubFormCom
         [
           InternalValidators.required(
             PersonalInfoFormValidationKeys.passportRequired
-          )
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.passport,
+            PersonalInfoFormValidationKeys.passportPattern
+          ),
         ],
       ),
     });

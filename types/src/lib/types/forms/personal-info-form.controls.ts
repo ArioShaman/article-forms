@@ -23,7 +23,9 @@ export enum PersonalInfoFormValidationKeys {
   lastNameRequired = 'lastNameRequired',
   phoneRequired = 'phoneRequired',
   snilsRequired = 'snilsRequired',
+  snilsPattern = 'snilsPattern',
   innRequired = 'innRequired',
+  innPattern = 'innPattern',
   passportRequired = 'passportRequired',
   passportPattern = 'passportPattern',
 }

@@ -21,7 +21,7 @@ import {
 import { TuiErrorModule } from '@taiga-ui/core';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoModule } from '@maskito/angular';
-import { InternalValidators } from '@article-workspace/utils';
+import { InternalValidators, ValidationRegex } from '@article-workspace/utils';
 import {
   AddressFormControls,
   AddressFormValidationKeys,
@@ -57,6 +57,8 @@ import {
           'Укажите город',
         [AddressFormValidationKeys.zipCodeRequired]:
           'Укажите почтовый индекс',
+        [AddressFormValidationKeys.zipCodePattern]:
+          'Некорректный формат почтового индекса',
         [AddressFormValidationKeys.regionRequired]:
           'Укажите область',
       },
@@ -110,7 +112,11 @@ export class AddressFormComponent implements OnInit, OnDestroy, ISubFormComponen
         [
           InternalValidators.required(
             AddressFormValidationKeys.zipCodeRequired
-          )
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.zipCode,
+            AddressFormValidationKeys.zipCodePattern
+          ),
         ],
       ),
       [AddressFormControls.country]: new FormControl<string | null>(

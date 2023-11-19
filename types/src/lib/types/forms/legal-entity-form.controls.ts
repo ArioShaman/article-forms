@@ -19,7 +19,10 @@ export interface ILegalEntityForm {
 export enum LegalEntityFormValidationKeys {
   nameRequired = 'nameRequired',
   innRequired = 'innRequired',
+  innPattern = 'innPattern',
   ogrnRequired = 'ogrnRequired',
+  ogrnPattern = 'ogrnPattern',
   kppRequired = 'kppRequired',
+  kppPattern = 'kppPattern',
   legalAddressRequired = 'legalAddressRequired',
 }

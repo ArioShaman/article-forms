@@ -26,7 +26,7 @@ import {
   TuiFieldErrorPipeModule,
   TUI_VALIDATION_ERRORS,
 } from '@taiga-ui/kit';
-import { InternalValidators } from '@article-workspace/utils';
+import { InternalValidators, ValidationRegex } from '@article-workspace/utils';
 import { legalEntityMasks } from './legal-entity-form.masks';
 
 @Component({
@@ -50,11 +50,17 @@ import { legalEntityMasks } from './legal-entity-form.masks';
         [LegalEntityFormValidationKeys.nameRequired]:
           'Укажите наименование организации',
         [LegalEntityFormValidationKeys.innRequired]:
-          'Укажите инн',
+          'Укажите ИНН',
+        [LegalEntityFormValidationKeys.innPattern]:
+          'Некорректный формат ИНН',
         [LegalEntityFormValidationKeys.kppRequired]:
           'Укажите КПП',
+        [LegalEntityFormValidationKeys.kppPattern]:
+          'Некорректный формат КПП',
         [LegalEntityFormValidationKeys.ogrnRequired]:
           'Укажите почтовый ОГРН',
+        [LegalEntityFormValidationKeys.ogrnPattern]:
+          'Некорректный формат ОГРН',
         [LegalEntityFormValidationKeys.legalAddressRequired]:
           'Укажите юридический адрес организации',
       },
@@ -86,40 +92,52 @@ export class LegalEntityComponent implements OnInit, OnDestroy, ISubFormComponen
         null,
         [
           InternalValidators.required(
-            LegalEntityFormValidationKeys.nameRequired
-          )
+            LegalEntityFormValidationKeys.nameRequired,
+          ),
         ],
       ),
       [LegalEntityFormControls.inn]: new FormControl<string | null>(
         null,
         [
           InternalValidators.required(
-            LegalEntityFormValidationKeys.innRequired
-          )
+            LegalEntityFormValidationKeys.innRequired,
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.inn,
+            LegalEntityFormValidationKeys.innPattern,
+          ),
         ],
       ),
       [LegalEntityFormControls.kpp]: new FormControl<string | null>(
         null,
         [
           InternalValidators.required(
-            LegalEntityFormValidationKeys.kppRequired
-          )
+            LegalEntityFormValidationKeys.kppRequired,
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.kpp,
+            LegalEntityFormValidationKeys.kppPattern,
+          ),
         ],
       ),
       [LegalEntityFormControls.ogrn]: new FormControl<string | null>(
         null,
         [
           InternalValidators.required(
-            LegalEntityFormValidationKeys.ogrnRequired
-          )
+            LegalEntityFormValidationKeys.ogrnRequired,
+          ),
+          InternalValidators.pattern(
+            ValidationRegex.ogrn,
+            LegalEntityFormValidationKeys.ogrnPattern,
+          ),
         ],
       ),
       [LegalEntityFormControls.legalAddress]: new FormControl<string | null>(
         null,
         [
           InternalValidators.required(
-            LegalEntityFormValidationKeys.legalAddressRequired
-          )
+            LegalEntityFormValidationKeys.legalAddressRequired,
+          ),
         ],
       ),
     });

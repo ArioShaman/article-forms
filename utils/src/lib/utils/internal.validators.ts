@@ -39,4 +39,21 @@ export class InternalValidators {
       return null;
     };
   }
+
+  static pattern(data: RegExp, errorKey = 'pattern'): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (!control.value) {
+        return null;
+      }
+      const valid = data.test(control.value);
+
+      if (!valid) {
+        return {
+          [errorKey]: true,
+        };
+      }
+
+      return null;
+    };
+  }
 }
