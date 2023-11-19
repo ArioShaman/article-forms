@@ -21,6 +21,8 @@ import {
   TuiInputNumberModule,
 } from '@taiga-ui/kit';
 import { TuiErrorModule } from '@taiga-ui/core';
+import { MaskitoOptions } from '@maskito/core';
+import { MaskitoModule } from '@maskito/angular';
 
 @Component({
   selector: 'address-form',
@@ -30,6 +32,7 @@ import { TuiErrorModule } from '@taiga-ui/core';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MaskitoModule,
 
     TuiInputModule,
     TuiErrorModule,
@@ -42,6 +45,13 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   parentForm!: FormGroup;
   addressForm!: FormGroup;
 
+  readonly zipCodeOptions: MaskitoOptions = {
+    mask: [
+      ...new Array(3).fill(/\d/),
+      ' ',
+      ...new Array(3).fill(/\d/),
+    ],
+  };
   readonly controls = AddressFormControls;
 
   ngOnInit(): void {
