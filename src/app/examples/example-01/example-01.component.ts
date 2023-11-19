@@ -12,7 +12,7 @@ import {
 } from '@angular/forms';
 
 import { tuiMarkControlAsTouchedAndValidate } from '@taiga-ui/cdk';
-import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiButtonModule, TuiGroupModule } from '@taiga-ui/core';
 import { TuiRadioBlockModule } from '@taiga-ui/kit';
 
 import {
@@ -20,7 +20,12 @@ import {
   LegalEntityComponent,
   PersonalInfoFormComponent,
 } from '@article-workspace/smart-ui';
-import { Example01FormControls, IExample01Form } from '@article-workspace/types';
+import {
+  Example01FormControls,
+  IExample01Form,
+  PersonalDataMode
+} from '@article-workspace/types';
+
 
 @Component({
   selector: 'example-01',
@@ -33,6 +38,7 @@ import { Example01FormControls, IExample01Form } from '@article-workspace/types'
 
     TuiButtonModule,
     TuiRadioBlockModule,
+    TuiGroupModule,
 
     AddressFormComponent,
     PersonalInfoFormComponent,
@@ -43,6 +49,11 @@ import { Example01FormControls, IExample01Form } from '@article-workspace/types'
 })
 export class Example01Component implements OnInit {
   exampleForm!: FormGroup;
+  readonly controls = Example01FormControls;
+
+  get isLegalEntityModeEnabled(): boolean {
+    return this.exampleForm.get(Example01FormControls.personalDataMode)?.value === 'legalEntity';
+  }
 
   constructor() {}
 
@@ -60,8 +71,8 @@ export class Example01Component implements OnInit {
 
   private initForm(): void {
     this.exampleForm = new FormGroup<IExample01Form>({
-      [Example01FormControls.isLegal]: new FormControl<boolean>(
-        false,
+      [Example01FormControls.personalDataMode]: new FormControl<PersonalDataMode>(
+        'personalData',
         { nonNullable: true }
       ),
     });

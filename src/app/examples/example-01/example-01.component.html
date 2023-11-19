@@ -4,9 +4,36 @@
 
   <h3 class="tui-text_h3">Персональные данные</h3>
 
-  <legal-entity-form></legal-entity-form>
+  <div
+    tuiGroup
+    class="group"
+    [collapsed]="true"
+  >
+    <tui-radio-block
+      contentAlign="left"
+      item="personalData"
+      [formControlName]="controls.personalDataMode"
+    >
+      Физическое лицо
+    </tui-radio-block>
+    <tui-radio-block
+      contentAlign="right"
+      item="legalEntity"
+      [formControlName]="controls.personalDataMode"
+    >
+      Юридическое лицо
+    </tui-radio-block>
+  </div>
 
-  <personal-info-form></personal-info-form>
+  @if (isLegalEntityModeEnabled) {
+    <legal-entity-form
+      class="tui-space_top-4"
+    ></legal-entity-form>
+  } @else {
+    <personal-info-form
+      class="tui-space_top-4"
+    ></personal-info-form>
+  }
 
   <h3 class="tui-text_h3">Адрес</h3>
 
@@ -20,3 +47,7 @@
     Сохранить
   </button>
 </form>
+
+<pre>
+  {{ exampleForm.value | json}}
+</pre>
