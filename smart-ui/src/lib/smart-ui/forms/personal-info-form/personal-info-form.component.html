@@ -1,0 +1,118 @@
+<ng-container [formGroup]="personalInfoForm">
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.firstName"
+      >
+        Имя
+
+        <input
+          placeholder="Иван"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.firstName"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.lastName"
+      >
+        Фамилия
+
+        <input
+          placeholder="Иванов"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.lastName"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input-phone
+        [formControlName]="controls.phone"
+      >
+        Телефон
+
+        <span class="tui-required"></span>
+      </tui-input-phone>
+
+      <tui-error
+        [formControlName]="controls.phone"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+  </div>
+
+  <div class="tui-form__row tui-form__row_multi-fields">
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.snils"
+        [maskito]="masks[controls.snils]"
+      >
+        СНИЛС
+
+        <input
+          placeholder="000-000-000 00"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.snils"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.inn"
+        [maskito]="masks[controls.inn]"
+      >
+        ИНН
+
+        <input
+          placeholder="000000000000"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.inn"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+
+    <div class="tui-form__multi-field">
+      <tui-input
+        [formControlName]="controls.passport"
+        [maskito]="masks[controls.passport]"
+      >
+        Паспорт
+
+        <input
+          placeholder="0000 000000"
+          tuiTextfield
+        />
+        <span class="tui-required"></span>
+      </tui-input>
+
+      <tui-error
+        [formControlName]="controls.passport"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+    </div>
+  </div>
+</ng-container>

@@ -1,6 +1,11 @@
 <h1 class="tui-text_h1">Example 1</h1>
 
 <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()">
+
+  <h3 class="tui-text_h3">Персональные данные</h3>
+
+  <personal-info-form></personal-info-form>
+
   <h3 class="tui-text_h3">Адрес</h3>
 
   <address-form></address-form>

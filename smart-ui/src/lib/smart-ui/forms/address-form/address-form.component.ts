@@ -27,6 +27,7 @@ import { TuiErrorModule } from '@taiga-ui/core';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoModule } from '@maskito/angular';
 import { InternalValidators } from '@article-workspace/utils';
+import { ISubFormComponent } from '../sub-form-component.interface';
 
 @Component({
   selector: 'address-form',
@@ -62,7 +63,7 @@ import { InternalValidators } from '@article-workspace/utils';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddressFormComponent implements OnInit, OnDestroy {
+export class AddressFormComponent implements OnInit, OnDestroy, ISubFormComponent {
   controlContainer = inject(ControlContainer);
   parentForm!: FormGroup;
   addressForm!: FormGroup;
@@ -85,7 +86,7 @@ export class AddressFormComponent implements OnInit, OnDestroy {
     this.parentForm.removeControl('address');
   }
 
-  private addSubformFields(): void {
+  addSubformFields(): void {
     this.addressForm = new FormGroup<IAddressForm>({
       [AddressFormControls.city]: new FormControl<string | null>(
         null,

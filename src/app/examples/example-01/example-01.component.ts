@@ -1,10 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddressFormComponent } from '@article-workspace/smart-ui';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { tuiMarkControlAsTouchedAndValidate } from '@taiga-ui/cdk';
 import { TuiButtonModule } from '@taiga-ui/core';
-
+import {
+  AddressFormComponent,
+  PersonalInfoFormComponent,
+} from '@article-workspace/smart-ui';
 
 @Component({
   selector: 'example-01',
@@ -16,6 +27,7 @@ import { TuiButtonModule } from '@taiga-ui/core';
     ReactiveFormsModule,
     TuiButtonModule,
     AddressFormComponent,
+    PersonalInfoFormComponent,
   ],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,

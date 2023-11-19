@@ -21,5 +21,6 @@ export enum AddressFormValidationKeys {
   regionRequired = 'regionRequired',
   cityRequired = 'cityRequired',
   zipCodeRequired = 'zipCodeRequired',
+  zipCodePattern = 'zipCodePattern',
   addressRequired = 'addressRequired',
 }
