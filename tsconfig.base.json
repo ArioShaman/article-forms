@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@article-workspace/smart-ui": ["smart-ui/src/index.ts"],
+      "@article-workspace/types": ["types/src/index.ts"],
       "@article-workspace/utils": ["utils/src/index.ts"]
     }
   },

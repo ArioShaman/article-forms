@@ -1,11 +1,7 @@
-import { MaskitoOptions } from '@maskito/core';
 import { PersonalInfoFormControls } from './personal-info-form.controls';
+import { IMasks } from '@article-workspace/types';
 
-export interface IMaskObject {
-  [key: string]: MaskitoOptions;
-}
-
-export const personalInfoMasks: IMaskObject = {
+export const personalInfoMasks: IMasks = {
   [PersonalInfoFormControls.inn]: {
     mask: [
       ...new Array(12).fill(/\d/),
